@@ -288,3 +288,39 @@ console.log(calculaIdade.call(animal, 10));
 console.log(calculaIdade.apply(animal, [5]));
 
 
+console.log("***********************************");
+
+// map
+
+function getAdmins(map) {
+    let admins = [];
+    for([key, value] of map) {
+        if(value === 'Admin') {
+            admins.push(key);
+        }
+    }
+    return admins;
+}
+
+const usuarios = new Map();
+
+usuarios.set('Luiz', 'Admin');
+usuarios.set('João', 'Admin');
+usuarios.set('Pedro', 'User');
+usuarios.set('Natalia', 'Admin');
+
+console.log(getAdmins(usuarios));
+
+
+console.log("***********************************");
+
+// set
+const meuArray = [30, 30, 40, 5, 223, 2049, 3034, 5];
+
+function valoresUnicos(arr) {
+    const mySet = new Set(arr);
+
+    return [...mySet];
+}
+
+console.log(valoresUnicos(meuArray));
