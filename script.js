@@ -324,3 +324,78 @@ function valoresUnicos(arr) {
 }
 
 console.log(valoresUnicos(meuArray));
+
+
+console.log("***********************************");
+
+// try/catch - tratamento de erro
+
+
+function verificaPalindromo(string) {
+    if(!string) throw "String Inválida";
+
+    return string === string.split('').reverse().join('');
+}
+
+function TryCatchExemplo(string) {
+    try {
+        verificaPalindromo(string);
+    }
+    catch(e) {
+        console.log(e);
+    }
+}
+
+TryCatchExemplo('');
+
+console.log("***********************************");
+
+// objeto Error
+//new Error(mensagem, numeroDoArquivo, numeroDaLinha)  //todos os parâmetros são opcionais 
+
+// criando Erros
+/*
+const MeuErro = new Error('Mensagem Inválida');
+throw MeuErro;
+*/
+
+// colocando nome no Error
+/*
+const MeuErro2 = new Error('Mensagem Inválida');
+MeuErro2.name = 'InvalidMessage';
+throw MeuErro2;
+*/
+
+console.log("***********************************");
+
+function validaArray(arr1, num1) {
+    try {
+        if(!arr1 && !num1) throw new ReferenceError("Envie os parâmetros");
+
+        if(typeof arr1 !== 'object') throw new TypeError("Array precisa ser do tipo object");
+    
+        if(typeof num1 !== 'number') throw new TypeError("Num precisa ser do tipo number");
+    
+        if(arr1.length !== num1) throw new RangeError("Tamanho inválido!");
+
+        return arr1;
+    }
+    catch(e) { 
+        if(e instanceof ReferenceError) {
+            console.log("Este erro é um ReferenceError!");
+            console.log(e.message);
+        } else if(e instanceof TypeError) {
+            console.log("Este erro é um TypeError!");
+            console.log(e.message);
+        } else if(e instanceof RangeError) {
+            console.log("Este erro é um RangeError!");
+            console.log(e.message);
+        } else {
+            console.log("Tipo de erro não esperado:" + e);
+        }
+    }
+}
+
+
+//console.log(validaArray([], 'kl'));
+console.log(validaArray([1, 2, 3, 4, 5], 5));
