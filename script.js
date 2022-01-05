@@ -399,3 +399,23 @@ function validaArray(arr1, num1) {
 
 //console.log(validaArray([], 'kl'));
 console.log(validaArray([1, 2, 3, 4, 5], 5));
+
+
+
+
+console.log("***********************************");
+
+// Promises
+/*
+// Ex - após 2 segundos, retornará o valor "Resolvida passando pelo then e agora acabou"
+const myPromise = new Promise((resolve, reject) => {
+    window.setTimeout(() => {
+        resolve('Resolvida');
+    }, 2000);
+});
+
+await myPromise
+    .then((result) => result + ' passando pelo then')
+    .then((result) => result + ' e agora acabou!')
+    .catch((err2) => console.log(err2.message));
+*/
